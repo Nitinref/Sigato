@@ -1,0 +1,12 @@
+node_modules
+# Next.js
+.next/
+
+# Environment
+.env
+.env.local
+.env.*
+!.env.example
+
+# Node
+node_modules/
