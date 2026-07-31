@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
-import { SigatoMark } from "../sigato-mark";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -201,8 +200,12 @@ export const NavbarLogo = () => {
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-3 px-2 py-1 text-sm font-normal text-white"
     >
-      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#ff8a3d]">
-        <SigatoMark className="h-7 w-7" />
+      <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-white">
+        <img
+          src="/sigato-logo.svg"
+          alt="Sigato logo"
+          className="h-7 w-7 object-cover"
+        />
       </span>
       <span className="text-[19px] font-semibold text-white">Sigato</span>
     </a>

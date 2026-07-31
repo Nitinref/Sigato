@@ -16,10 +16,12 @@ This project was created using `bun init` in bun v1.2.17. [Bun](https://bun.sh) 
 
 ## Navbar logo
 
-The landing-page navbar uses the `SigatoMark` SVG as the site logo. The shared `NavbarLogo` component renders the icon and brand name together, and it is used in the home and docs headers.
+The landing-page navbar uses the Sigato logo image asset from the frontend public folder.
+
+![Sigato logo](frontend/public/sigato-logo.svg)
 
 Relevant frontend files:
-- `frontend/components/sigato-mark.tsx`
+- `frontend/public/sigato-logo.svg`
 - `frontend/components/ui/resizable-navbar.tsx`
 - `frontend/components/resizable-navbar-demo.tsx`
 
