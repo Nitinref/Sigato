@@ -23,7 +23,7 @@ export default function TerminalDemo() {
 
         <div className="rounded-[28px] border border-white/10 bg-[#0d0d0d] p-4 md:p-5">
           <Terminal
-            commands={["scrapy wakeup"]}
+            commands={["scrpy wakeup"]}
             outputs={{
               0: [
                 "SIGATO",

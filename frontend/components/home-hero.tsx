@@ -12,27 +12,30 @@ export function HomeHero() {
   return (
     <>
       <section className="mx-auto mt-3 w-[calc(100%-24px)] overflow-hidden rounded-[44px] shadow-[0_28px_80px_rgba(0,0,0,0.08)]">
-        <div className="relative min-h-[900px] overflow-hidden bg-[radial-gradient(circle_at_48%_10%,rgba(255,255,255,0.8),rgba(255,255,255,0)_18%),linear-gradient(180deg,#ffb86a_0%,#ff9e4d_26%,#ffd4aa_64%,#fff3e7_100%)]">
+        <div
+          className="relative min-h-[900px] overflow-hidden"
+          style={{ background: "var(--hero-bg)" }}
+        >
           <SiteHeader />
 
           <div className="relative z-10 mx-auto max-w-[1060px] px-8 pb-[220px] pt-[188px] text-center">
-            <h1 className="font-serif text-[clamp(4rem,6.8vw,7.4rem)] font-normal leading-[0.94] tracking-[-0.05em] text-[#141414]">
+            <h1 className="font-serif text-[clamp(4rem,6.8vw,7.4rem)] font-normal leading-[0.94] tracking-[-0.05em] text-[var(--page-fg)]">
               Autopilot for your terminal workflow.
               <br />
               Build with Sigato.
             </h1>
-            <p className="mx-auto mt-9 max-w-[790px] text-[clamp(1.15rem,2vw,1.8rem)] leading-[1.55] text-black/70">
-              <strong className="text-[#1c1c1c]">Sigato</strong> reads and edits
+            <p className="mx-auto mt-9 max-w-[790px] text-[clamp(1.15rem,2vw,1.8rem)] leading-[1.55] text-[var(--muted-fg)]">
+              <strong className="text-[var(--page-fg)]">Sigato</strong> reads and edits
               code, runs shell commands with approval, and helps you move from
               idea to implementation without leaving the terminal.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4" id="install">
-              <div className="inline-flex min-h-[54px] items-center overflow-hidden rounded-[16px] border border-black/20 bg-[#1d1816] text-white shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
-                <span className="px-4 text-[18px]">$</span>
-                <code className="px-6 text-[16px]">npm i -g sigato</code>
+              <div className="inline-flex min-h-[54px] items-center overflow-hidden rounded-[16px] border border-[var(--border-soft)] bg-[var(--surface-4)] text-white shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
+                <span className="px-4 text-[18px] text-white/90">$</span>
+                <code className="px-6 text-[16px] text-white/85">npm i -g sigato</code>
                 <button
-                  className="min-h-[54px] border-l border-white/10 bg-[#2d2521] px-5 text-[14px] font-bold uppercase tracking-[0.08em]"
+                  className="min-h-[54px] border-l border-white/10 bg-[var(--surface-5)] px-5 text-[14px] font-bold uppercase tracking-[0.08em] text-white/90"
                   type="button"
                 >
                   Copy
@@ -40,7 +43,7 @@ export function HomeHero() {
               </div>
 
               <a
-                className="inline-flex min-h-[54px] items-center gap-3 rounded-[16px] border border-[#ff8a3d]/30 bg-[#fff7f0] px-4 pr-5 text-[#ff8a3d] shadow-[0_14px_34px_rgba(255,138,61,0.12)]"
+                className="inline-flex min-h-[54px] items-center gap-3 rounded-[16px] border border-[#ff8a3d]/30 bg-[var(--surface-1)] px-4 pr-5 text-[#ff8a3d] shadow-[0_14px_34px_rgba(255,138,61,0.12)]"
                 href="/#coming-soon"
               >
                 <span className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#ff8a3d] font-bold text-white">
@@ -70,7 +73,7 @@ export function HomeHero() {
       </section>
 
       <section id="overview" className="mx-auto w-[calc(100%-24px)] px-4 pb-10 pt-16 text-center">
-        <h2 className="font-serif text-[clamp(3.2rem,4.5vw,6rem)] font-normal leading-[0.98] tracking-[-0.05em]">
+        <h2 className="font-serif text-[clamp(3.2rem,4.5vw,6rem)] font-normal leading-[0.98] tracking-[-0.05em] text-[var(--page-fg)]">
           A warm, focused workspace for
           <br />
           autonomous development.

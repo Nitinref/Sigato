@@ -47,9 +47,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   const visible = true;
 
   return (
-    <motion.div
-      className={cn("fixed inset-x-0 top-4 z-40 w-full", className)}
-    >
+    <motion.div className={cn("fixed inset-x-0 top-3 z-40 px-3 md:top-4 md:px-6", className)}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
@@ -69,14 +67,13 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         backdropFilter: "blur(12px)",
         boxShadow:
           "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset",
-        width: visible ? "min(95vw, 1320px)" : "min(95vw, 1320px)",
         opacity: visible ? 1 : 0,
         scale: visible ? 1 : 0.98,
         y: visible ? 10 : -10,
       }}
       transition={{ type: "spring", stiffness: 200, damping: 50 }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full bg-[#101010] px-6 py-4 text-white lg:flex",
+        "relative z-[60] mx-auto hidden w-full max-w-[1320px] flex-row items-center justify-between self-start overflow-hidden rounded-full bg-[#101010] px-4 py-4 text-white xl:flex xl:px-6",
         visible && "bg-[#111111]/90",
         className,
       )}
@@ -93,7 +90,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-4 text-[17px] font-medium text-zinc-300 transition duration-200 lg:flex",
+        "relative hidden min-w-0 flex-1 flex-row items-center justify-center space-x-4 text-[17px] font-medium text-zinc-300 transition duration-200 xl:flex",
         className,
       )}
     >
@@ -125,17 +122,13 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         backdropFilter: "blur(12px)",
         boxShadow:
           "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset",
-        width: visible ? "min(95vw, 1320px)" : "min(95vw, 1320px)",
         opacity: 1,
         scale: 1,
         y: 10,
-        paddingRight: "16px",
-        paddingLeft: "16px",
-        borderRadius: "4px",
       }}
       transition={{ type: "spring", stiffness: 200, damping: 50 }}
       className={cn(
-        "relative z-50 mx-auto flex w-full flex-col items-center justify-between bg-[#101010] px-0 py-4 lg:hidden",
+        "relative z-50 mx-auto flex w-full max-w-[1320px] flex-col items-center justify-between overflow-visible rounded-[24px] bg-[#101010] px-3 py-3 xl:hidden",
         visible && "bg-[#111111]/90",
         className,
       )}
@@ -147,7 +140,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
 
 export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) => {
   return (
-    <div className={cn("flex w-full flex-row items-center justify-between", className)}>
+    <div className={cn("flex w-full min-w-0 flex-row items-center justify-between gap-3", className)}>
       {children}
     </div>
   );
@@ -162,7 +155,7 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }: MobileNa
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-[#111111] px-4 py-8 text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
+            "absolute inset-x-0 top-[calc(100%+0.75rem)] z-50 flex w-full flex-col items-start justify-start gap-4 rounded-[20px] bg-[#111111] px-4 py-6 text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
             className,
           )}
         >
@@ -188,9 +181,13 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="h-7 w-7 text-white" onClick={onClick} />
+    <button type="button" aria-label="Close navigation" onClick={onClick} className="shrink-0 p-1">
+      <IconX className="h-7 w-7 text-white" />
+    </button>
   ) : (
-    <IconMenu2 className="h-7 w-7 text-white" onClick={onClick} />
+    <button type="button" aria-label="Open navigation" onClick={onClick} className="shrink-0 p-1">
+      <IconMenu2 className="h-7 w-7 text-white" />
+    </button>
   );
 };
 
@@ -198,16 +195,18 @@ export const NavbarLogo = () => {
   return (
     <a
       href="/"
-      className="relative z-20 mr-4 flex items-center space-x-3 px-2 py-1 text-sm font-normal text-white"
+      className="relative z-20 flex min-w-0 items-center gap-2 px-1 py-1 text-sm font-normal text-white sm:gap-3 sm:px-2"
     >
-      <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-white">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white sm:h-11 sm:w-11">
         <img
           src="/sigato-logo.svg"
           alt="Sigato logo"
-          className="h-7 w-7 object-cover"
+          className="h-6 w-6 object-cover sm:h-7 sm:w-7"
         />
       </span>
-      <span className="text-[19px] font-semibold text-white">Sigato</span>
+      <span className="truncate text-[18px] font-semibold text-white sm:text-[19px]">
+        Sigato
+      </span>
     </a>
   );
 };
@@ -227,7 +226,7 @@ export const NavbarButton = ({
   variant?: "primary" | "secondary" | "dark" | "gradient";
 } & (React.ComponentPropsWithoutRef<"a"> | React.ComponentPropsWithoutRef<"button">)) => {
   const baseStyles =
-    "px-6 py-3.5 rounded-full text-[17px] font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+    "rounded-full px-4 py-2.5 text-[15px] font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center sm:px-5 sm:py-3 sm:text-[16px] xl:px-6 xl:py-3.5 xl:text-[17px]";
 
   const variantStyles = {
     primary:

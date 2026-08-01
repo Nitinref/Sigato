@@ -4,6 +4,27 @@
   --font-sans: Arial, Helvetica, sans-serif;
   --font-display: "Times New Roman", Georgia, serif;
   --font-mono: "Courier New", Courier, monospace;
+  --page-bg: #f5f1e8;
+  --page-fg: #111111;
+  --muted-fg: rgba(17, 17, 17, 0.68);
+  --surface-1: #fff7ef;
+  --surface-2: #f7dcc1;
+  --surface-3: #101010;
+  --surface-4: #1d1816;
+  --surface-5: #2d2521;
+  --border-soft: rgba(17, 17, 17, 0.12);
+  --hero-bg: radial-gradient(circle at 48% 10%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 18%),
+    linear-gradient(180deg, #ffb86a 0%, #ff9e4d 26%, #ffd4aa 64%, #fff3e7 100%);
+  --showcase-bg: radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 22%),
+    linear-gradient(180deg, #ffd7ad 0%, #ffbe82 32%, #ffefdf 78%, #f7dcc1 100%);
+  --features-bg: linear-gradient(180deg, #f8d3b1 0%, #f4caa1 100%);
+  --coming-soon-bg: #101010;
+  --quickstart-bg: #f0d8c2;
+  --footer-bg: rgba(255, 255, 255, 0.48);
+  --panel-bg: rgba(255, 255, 255, 0.75);
+  --panel-fg: #111111;
+  --panel-muted: rgba(17, 17, 17, 0.72);
+  color-scheme: light;
 }
 
 html {
@@ -12,7 +33,7 @@ html {
 
 body {
   margin: 0;
-  background: #f5f1e8;
-  color: #111111;
+  background: var(--page-bg);
+  color: var(--page-fg);
   font-family: var(--font-sans);
 }

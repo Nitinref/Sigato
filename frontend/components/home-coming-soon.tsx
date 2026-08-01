@@ -17,26 +17,27 @@ export function HomeComingSoon() {
   return (
     <section
       id="coming-soon"
-      className="mx-auto mt-7 overflow-hidden rounded-[40px] bg-[#101010] px-5 py-6 text-white shadow-[0_28px_80px_rgba(0,0,0,0.12)] md:px-8 lg:px-10"
+      className="mx-auto mt-7 overflow-hidden rounded-[40px] px-5 py-6 text-[var(--page-fg)] shadow-[0_28px_80px_rgba(0,0,0,0.12)] md:px-8 lg:px-10"
+      style={{ background: "var(--coming-soon-bg)" }}
     >
       <div className="grid gap-8 lg:grid-cols-[1fr_1.08fr] lg:items-center">
         <div className="max-w-[620px]">
-          <p className="mb-4 text-[14px] uppercase tracking-[0.16em] text-white/45">
+          <p className="mb-4 text-[14px] uppercase tracking-[0.16em] text-[var(--muted-fg)]">
             Coming soon
           </p>
-          <h3 className="font-serif text-[clamp(3.2rem,4.5vw,6rem)] font-normal leading-[0.92] tracking-[-0.05em] text-[#fff2ea]">
+          <h3 className="font-serif text-[clamp(3.2rem,4.5vw,6rem)] font-normal leading-[0.92] tracking-[-0.05em] text-[var(--page-fg)]">
             Sigato is almost here.
           </h3>
-          <p className="mt-6 max-w-[560px] text-[18px] leading-[1.55] text-white/68 md:text-[20px]">
+          <p className="mt-6 max-w-[560px] text-[18px] leading-[1.55] text-[var(--muted-fg)] md:text-[20px]">
             A terminal-first agent experience with approvals, browser actions,
             and workflow orchestration, wrapped in a cleaner, calmer interface.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {comingSoonCards.map((card) => (
-              <article key={card.title} className="rounded-[24px] border border-white/12 bg-white/5 p-5">
-                <h4 className="mb-3 text-[18px] font-semibold text-[#ffd8bd]">{card.title}</h4>
-                <p className="m-0 text-[15px] leading-[1.55] text-white/66">{card.copy}</p>
+              <article key={card.title} className="rounded-[24px] border border-[var(--border-soft)] bg-[var(--panel-bg)] p-5">
+                <h4 className="mb-3 text-[18px] font-semibold text-[#ffb77d]">{card.title}</h4>
+                <p className="m-0 text-[15px] leading-[1.55] text-[var(--panel-muted)]">{card.copy}</p>
               </article>
             ))}
           </div>
